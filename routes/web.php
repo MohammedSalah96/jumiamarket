@@ -17,7 +17,7 @@ Route::group(['namespace' => 'Front'], function () {
 
   Route::get('/', 'HomeController@index')->name('home');
   
-  Route::get('customers/data', 'CustomersController@dataTable');
+  Route::get('customers/phone/data', 'PhoneNumbersController@dataTable');
   
     
 });

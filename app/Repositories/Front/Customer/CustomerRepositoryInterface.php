@@ -6,6 +6,6 @@ use Illuminate\Http\Request;
 
 interface CustomerRepositoryInterface{
 
-    public function dataTable(Request $request);
+    public function phoneNumbersList(Request $request);
 
 }

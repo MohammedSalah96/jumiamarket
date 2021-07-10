@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\FrontController;
 use App\Repositories\Front\Customer\CustomerRepositoryInterface;
 
-class CustomersController extends FrontController
+class PhoneNumbersController extends FrontController
 {
     private $customerRepository;
 
@@ -21,9 +21,9 @@ class CustomersController extends FrontController
      */
     public function dataTable(Request $request)
     {
-        $customers = $this->customerRepository->dataTable($request);
+        $phoneNumbers = $this->customerRepository->phoneNumbersList($request);
 
-        return \DataTables::of($customers)
+        return \DataTables::of($phoneNumbers)
             ->addColumn('country', function ($item) {
                 $countryCode = $this->getPhoneDetails($item->phone)['country_code'];
                 return $this->countryCodes[$countryCode]['country'];
@@ -33,7 +33,8 @@ class CustomersController extends FrontController
             })
             ->addColumn('state', function ($item) {
                 $countryCode = $this->getPhoneDetails($item->phone)['country_code'];
-                return preg_match($this->countryCodes[$countryCode]['regex'], $item->phone) ? 'OK' : 'NOK';
+                $regex = $this->countryCodes[$countryCode]['regex'];
+                return preg_match($regex, $item->phone) ? 'Valid' : 'NValid';
             })
             ->editColumn('phone', function ($item) {
                 return $this->getPhoneDetails($item->phone)['phone'];

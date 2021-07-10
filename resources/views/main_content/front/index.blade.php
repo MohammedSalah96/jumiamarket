@@ -24,8 +24,8 @@
                             </label>
                             <select class="form-control" id="state" name="state">
                                 <option value="">choose</option>
-                                <option value="OK">OK</option>
-                                <option value="NOK">NOK</option>
+                                <option value="Valid">Valid</option>
+                                <option value="NValid">NValid</option>
                             </select>
                         </div>
                     </div>
@@ -35,11 +35,11 @@
         <div class="card">
             <div class="card-header">
                 <div class="card-title">
-                    <h3 class="card-label">Customers</h3>
+                    <h3 class="card-label">Phone Numbers</h3>
                 </div>
             </div>
             <div class="card-body">
-                <table class="table table-striped table-bordered" id="customers-grid">
+                <table class="table table-striped table-bordered" id="phone-numbers-grid">
                     <thead>
                         <tr>
                             <th>Counrty</th>
@@ -63,5 +63,5 @@
             
         };
     </script>
-    <script src="{{url('public/front/scripts/customers.js')}}" type="text/javascript"></script>
+    <script src="{{url('public/front/scripts/phone_numbers.js')}}" type="text/javascript"></script>
 @endsection

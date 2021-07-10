@@ -17,10 +17,9 @@ class CustomerRepository extends BaseRepository implements CustomerRepositoryInt
       $this->customer =  $customer;
    }
 
-   public function dataTable(Request $request)
+   public function phoneNumbersList(Request $request)
    {
-      $customers =  $this->customer->select('*')->get();
-      return $customers;
+      return  $this->customer->select('phone')->get();
    }
 
    

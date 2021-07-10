@@ -1,5 +1,5 @@
-var Customers = function() {
-var CustomersGrid;
+var PhoneNumbers = function() {
+var phoneNumbersGrid;
 
     var init = function() {
         $.extend(config, newConfig);
@@ -9,20 +9,20 @@ var CustomersGrid;
 
     var handleFilter = function(){
          $("#state, #country").change(function(){
-            $('#customers-grid').DataTable().destroy();
-            $('#customers-grid tbody').empty();
+            $('#phone-numbers-grid').DataTable().destroy();
+            $('#phone-numbers-grid tbody').empty();
             handleRecords();
         });
     }
 
     var handleRecords = function() {
-        CustomersGrid = $('#customers-grid').DataTable({
+        phoneNumbersGrid = $('#phone-numbers-grid').DataTable({
             "processing": true,
             "serverSide": true,
             "responsive":true,
             "searching": false,
             "ajax": {
-                "url": config.url + "/customers/data",
+                "url": config.url + "/customers/phone/data",
                 "type": "GET",
                 data: { state: $('#state').val(), country: $('#country').val() },
             },
@@ -60,5 +60,5 @@ var CustomersGrid;
 }();
 
 jQuery(document).ready(function() {
-    Customers.init();
+    PhoneNumbers.init();
 });
